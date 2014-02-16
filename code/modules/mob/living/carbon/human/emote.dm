@@ -180,6 +180,11 @@
 			message = "<B>[src]</B> frowns."
 			m_type = 1
 
+		if ("fart")
+			message = pick("<B>[src]</B> farts robustly!", "<B>[src]</B> farts.", "<B>[src]</B> farts. Smells like a medbay!")
+			playsound(src.loc, 'sound/voice/fart1.ogg', 100, 1)
+			m_type = 1
+
 		if ("nod")
 			message = "<B>[src]</B> nods."
 			m_type = 1
@@ -542,7 +547,7 @@
 					m_type = 2
 
 		if ("help")
-			src << "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,\ncry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,\ngrin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,\nsigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,\nwink, yawn"
+			src << "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, collapse, cough,\ncry, custom, deathgasp, drool, eyebrow, frown, fart, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob,\ngrin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug,\nsigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper,\nwink, yawn"
 
 		else
 			src << "\blue Unusable emote '[act]'. Say *help for a list."
