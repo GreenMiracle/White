@@ -1203,12 +1203,11 @@ mob/living/carbon/human/yank_out_object()
 	return(visible_implants)
 
 /mob/living/carbon/human/proc/handle_embedded_objects()
-
 	for(var/datum/organ/external/organ in src.organs)
 		if(organ.status & ORGAN_SPLINTED) //Splints prevent movement.
 			continue
 		for(var/obj/item/weapon/O in organ.implants)
-			if(!istype(O,/obj/item/weapon/implant) && prob(5)) //Moving with things stuck in you could be bad.
+			if(!istype(O,/obj/item/weapon/implant) && prob(1)) //Moving with things stuck in you could be bad.
 				// All kinds of embedded objects cause bleeding.
 				var/msg = null
 				switch(rand(1,3))
@@ -1274,7 +1273,7 @@ mob/living/carbon/human/yank_out_object()
 		see_invisible = SEE_INVISIBLE_LIVING
 
 	spawn(0)
-		update_icons()
+		update_body(1)
 
 	if(species)
 		return 1

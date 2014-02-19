@@ -1327,6 +1327,7 @@
 			if(!druggy)		see_invisible = SEE_INVISIBLE_LEVEL_TWO
 			if(healths)		healths.icon_state = "health7"	//DEAD healthmeter
 		else
+			see_in_dark = 2
 			sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
 			if(dna)
 				switch(dna.mutantrace)
@@ -1362,7 +1363,7 @@
 							O.assess_targets(target_list, src)
 						if(!druggy)		see_invisible = SEE_INVISIBLE_LIVING
 					if(1)
-						see_in_dark = 5
+						see_in_dark = 6
 						if(!druggy)		see_invisible = SEE_INVISIBLE_LIVING
 					if(2)
 						sight |= SEE_MOBS
@@ -1481,9 +1482,9 @@
 			if(eye_blurry)			client.screen += global_hud.blurry
 			if(druggy)				client.screen += global_hud.druggy
 
-			var/masked = 0
+			//var/masked = 0
 
-			if( istype(head, /obj/item/clothing/head/welding) || istype(head, /obj/item/clothing/head/helmet/space/unathi))
+			/*if( istype(head, /obj/item/clothing/head/welding) || istype(head, /obj/item/clothing/head/helmet/space/unathi))
 				var/obj/item/clothing/head/welding/O = head
 				if(!O.up && tinted_weldhelh)
 					client.screen += global_hud.darkMask
@@ -1492,7 +1493,7 @@
 			if(!masked && istype(glasses, /obj/item/clothing/glasses/welding) )
 				var/obj/item/clothing/glasses/welding/O = glasses
 				if(!O.up && tinted_weldhelh)
-					client.screen += global_hud.darkMask
+					client.screen += global_hud.darkMask*/
 
 			if(eye_stat > 20)
 				if(eye_stat > 30)	client.screen += global_hud.darkMask

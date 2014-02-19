@@ -8,6 +8,21 @@
 	item_state = "centhat"
 	siemens_coefficient = 0.9
 
+/obj/item/clothing/head/nazicap
+	name = "nazist cap"
+	desc = "Be Emperror of Station! Fight for racial purity!"
+	icon_state = "nazi"
+	item_state = "nazi"
+	flags = FPRINT|TABLEPASS|HEADCOVERSEYES|HEADCOVERSMOUTH|BLOCKHAIR
+	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+
+/obj/item/clothing/head/kkc
+	name = "Ku Klux Klan mask"
+	desc = "Fight for racial purity! Kill station Chaplain and burn heretics!"
+	icon_state = "kkc"
+	item_state = "kkc"
+	flags = FPRINT|TABLEPASS|HEADCOVERSEYES|HEADCOVERSMOUTH|BLOCKHAIR
+
 /obj/item/clothing/head/hairflower
 	name = "hair flower pin"
 	icon_state = "hairflower"
@@ -249,3 +264,12 @@
 	flags = FPRINT | TABLEPASS | BLOCKHAIR
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	siemens_coefficient = 2.0
+
+/obj/item/clothing/head/bearhat
+	name = "Bear hood"
+	desc = "A large, bear-like hood. Very warm!"
+	icon_state = "bearhat"
+	flags = FPRINT | TABLEPASS | HEADCOVERSEYES | HEADCOVERSMOUTH | BLOCKHAIR
+	item_state="bearhat"
+	flags_inv = 0
+
