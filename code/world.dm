@@ -72,7 +72,7 @@
 
 	src.update_status()
 
-	load_donators()
+//	load_donators()
 
 	. = ..()
 

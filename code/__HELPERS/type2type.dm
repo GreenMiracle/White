@@ -98,6 +98,30 @@
 	return newText
 
 
+/proc/dd_text2list(text, separator, var/list/withinList)
+	var/textlength = length(text)
+	var/separatorlength = length(separator)
+	if(withinList && !withinList.len) withinList = null
+	var/list/textList = new()
+	var/searchPosition = 1
+	var/findPosition = 1
+	var/loops = 0
+	while(1)
+		if(loops >= 1000)
+			break
+		loops++
+
+		findPosition = findtext(text, separator, searchPosition, 0)
+		var/buggyText = copytext(text, searchPosition, findPosition)
+		if(!withinList || (buggyText in withinList)) textList += "[buggyText]"
+		if(!findPosition) return textList
+		searchPosition = findPosition + separatorlength
+		if(searchPosition > textlength)
+			textList += ""
+			return textList
+	return
+
+
 //slower then dd_list2text, but correctly processes associative lists.
 proc/tg_list2text(list/list, glue=",")
 	if(!istype(list) || !list.len)
