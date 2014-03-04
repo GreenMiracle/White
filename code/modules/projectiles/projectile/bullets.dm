@@ -12,15 +12,14 @@
 			shake_camera(L, 3, 2)
 
 /obj/item/projectile/bullet/weakbullet
-	damage = 10
+	damage = 20
 	stun = 8
 	weaken = 8
 
-
 /obj/item/projectile/bullet/midbullet
-	damage = 40
-	stun = 5
-	weaken = 5
+	damage = 44
+	stun = 6
+	weaken = 8
 
 /obj/item/projectile/bullet/midbullet2
 	damage = 50
