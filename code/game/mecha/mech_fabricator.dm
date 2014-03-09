@@ -23,7 +23,7 @@
 										"diamond"=0,
 										"plasma"=0,
 										"uranium"=0,
-										//"bananium"=0 No need to state what it can no longer hold
+										"bananium"=0  // Suck my dick, baynerfclowns.
 										)
 	var/res_max_amount = 200000
 	var/datum/research/files
@@ -688,8 +688,8 @@
 			type = /obj/item/stack/sheet/mineral/plasma
 		if("uranium")
 			type = /obj/item/stack/sheet/mineral/uranium
-		/*if("bananium")
-			type = /obj/item/stack/sheet/mineral/clown Sorry, but no more clown mechs, even if you do manage to get to the clown planet.*/
+		if("bananium")
+			type = /obj/item/stack/sheet/mineral/clown // Sorry, but no more nerfocluwnees
 		else
 			return 0
 	var/result = 0
@@ -747,9 +747,9 @@
 			if(src.resources["diamond"] >= 2000)
 				var/obj/item/stack/sheet/mineral/diamond/G = new /obj/item/stack/sheet/mineral/diamond(src.loc)
 				G.amount = round(src.resources["diamond"] / G.perunit)
-			/*if(src.resources["bananium"] >= 2000)
+			if(src.resources["bananium"] >= 2000)
 				var/obj/item/stack/sheet/mineral/clown/G = new /obj/item/stack/sheet/mineral/clown(src.loc)
-				G.amount = round(src.resources["bananium"] / G.perunit) Sorry, but no bananium allowed*/
+				G.amount = round(src.resources["bananium"] / G.perunit) // Sorry, no baycircus allowed
 			del(src)
 			return 1
 		else
@@ -773,8 +773,8 @@
 			material = "metal"
 		if(/obj/item/stack/sheet/glass)
 			material = "glass"
-		/*if(/obj/item/stack/sheet/mineral/clown)
-			material = "bananium"*/
+		if(/obj/item/stack/sheet/mineral/clown)
+			material = "bananium"
 		if(/obj/item/stack/sheet/mineral/uranium)
 			material = "uranium"
 		else
