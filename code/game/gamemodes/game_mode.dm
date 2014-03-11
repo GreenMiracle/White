@@ -23,6 +23,7 @@
 	var/list/datum/mind/modePlayer = new
 	var/list/restricted_jobs = list()	// Jobs it doesn't make sense to be.  I.E chaplain or AI cultist
 	var/list/protected_jobs = list()	// Jobs that can't be tratiors because
+	var/list/mode_landmarks = list()
 	var/required_players = 0
 	var/required_players_secret = 0 //Minimum number of players for that game mode to be chose in Secret
 	var/required_enemies = 0
