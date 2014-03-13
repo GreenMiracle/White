@@ -103,3 +103,8 @@
 	f_name = "D"
 	name = "ont you Just Know"
 	path = 'Dont_you_just_know.ogg'
+
+/datum/turntable_soundtrack/cheekibreeki
+	f_name = "M"
+	name = "aslinu Poymal"
+	path = 'cheekibreeki.ogg'

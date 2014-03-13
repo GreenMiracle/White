@@ -301,9 +301,38 @@
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "<B>[src]</B> laughs."
+					if (!ready_to_emote())
+						if (world.time % 3)
+							usr << "<span class='warning'>You not ready to laugh again!"
+					else
+						message = "<B>[src]</B> laughs."
+						m_type = 2
+						call_sound_emote("laugh")
+				else
+					message = "<B>[src]</B> makes a noise."
 					m_type = 2
-					call_sound_emote("laugh")
+
+		if("elaugh")
+			if(miming)
+				message = "<B>[src]</B> acts out a laugh."
+				m_type = 1
+			else if (mind.special_role)
+				if (!ready_to_elaugh())
+					if (world.time % 3)
+						usr << "<span class='warning'>You not ready to laugh again!"
+				else
+					message = "<B>[src]</B> laugh like a true evil! Mu-ha-ha!"
+					m_type = 2
+					call_sound_emote("elaugh")
+			else
+				if (!muzzled)
+					if (!ready_to_emote())
+						if (world.time % 3)
+							usr << "<span class='warning'>You not ready to laugh again!"
+					else
+						message = "<B>[src]</B> laughs."
+						m_type = 2
+						call_sound_emote("laugh")
 				else
 					message = "<B>[src]</B> makes a noise."
 					m_type = 2
@@ -534,20 +563,41 @@
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "<B>[src]</B> screams!"
-					m_type = 2
-					call_sound_emote("scream")
+					if (!ready_to_emote())
+						if (world.time % 3)
+							usr << "<span class='warning'>You not ready to scream again!"
+					else
+						message = "<B>[src]</B> screams!"
+						m_type = 2
+						call_sound_emote("scream")
 				else
 					message = "<B>[src]</B> makes a very loud noise."
 					m_type = 2
 
 		if("fart")
-			message = pick("<B>[src]</B> farts robustly!", "<B>[src]</B> farts.", "<B>[src]</B> farts. Smells like a medbay!")
-			m_type = 1
-			call_sound_emote("fart")
+			if (lost_anus >= 1)
+				usr << "<span class='warning'>My ass is exploded. Uh-oh..."
+				message = ("<B>[src]</B> tried to fart, but he forgot that his butt was exploded!")
+			else
+				if (fail_farts >= 15)
+					message = "<B>[src]</B>'s butt explodes!"
+					anus_bombanull()
+				else
+					if (!ready_to_emote())
+						if (world.time % 3)
+							usr << "<span class='warning'>Your ass is not ready to fire again!"
+							fail_farts ++
+					else
+						adjustToxLoss(2)
+						adjustBrainLoss(1)
+						message = pick("<B>[src]</B> farts robustly!", "<B>[src]</B> farts.", "<B>[src]</B> farts. Smells like a medbay!")
+						m_type = 1
+						call_sound_emote("fart")
+
 
 			var/area/A = get_area(src.loc)
 			if(A && A.name == "\improper Chapel")
+				lost_anus = 1
 				message = "<B>[src]</B>'s butt explodes!"
 				src.Weaken(12)
 				flick("e_flash", src.flash)
@@ -587,6 +637,35 @@
 		else if (m_type & 2)
 			for (var/mob/O in (hearers(src.loc, null) | get_mobs_in_view(world.view,src)))
 				O.show_message(message, m_type)
+/mob/living/carbon/human/var/emote_delay = 30
+/mob/living/carbon/human/var/elaugh_delay = 600
+/mob/living/carbon/human/var/last_emoted = 0
+/mob/living/carbon/human/var/fail_farts = 0
+/mob/living/carbon/human/var/lost_anus = 0
+
+/mob/living/carbon/human/proc/ready_to_emote()
+	if(world.time >= last_emoted + emote_delay)
+		last_emoted = world.time
+		return 1
+	else
+		return 0
+
+/mob/living/carbon/human/proc/ready_to_elaugh()
+	if(world.time >= last_emoted + elaugh_delay)
+		last_emoted = world.time
+		return 1
+	else
+		return 0
+
+/mob/living/carbon/human/proc/anus_bombanull()
+	lost_anus = 1
+	src.Weaken(12)
+	flick("e_flash", src.flash)
+	var/datum/organ/external/affecting = src.get_organ("groin")
+	if(affecting)
+		if(affecting.take_damage(25, 20))
+			src.UpdateDamageIcon()
+		src.updatehealth()
 
 
 /mob/living/carbon/human/verb/pose()
@@ -612,6 +691,9 @@
 
 		if("laugh")
 			playsound(src.loc, pick('sound/voice/laugh1.ogg', 'sound/voice/laugh2.ogg', 'sound/voice/laugh3.ogg'), 100, 1)
+
+		if("elaugh")
+			playsound(src.loc, 'sound/voice/elaugh.ogg', 100, 1)
 
 		if("fart")
 			playsound(src.loc, 'sound/voice/fart1.ogg', 100, 1)
