@@ -1,6 +1,6 @@
 /obj/structure/janitorialcart
 	name = "janitorial cart"
-	desc = "This is the alpha and omega of sanitation."
+	desc = "The ultimate in janitorial carts! Has space for water, mops, signs, trash bags, and more!"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
 	anchored = 0
@@ -96,10 +96,9 @@
 		dat += "<a href='?src=\ref[src];replacer=1'>[myreplacer.name]</a><br>"
 	if(signs)
 		dat += "<a href='?src=\ref[src];sign=1'>[signs] sign\s</a><br>"
-
-	user << browse(dat, "window=janicart;size=400x500")
-	onclose(user, "janicart")
-	return
+	var/datum/browser/popup = new(user, "janicart", name, 240, 160)
+	popup.set_content(dat)
+	popup.open()
 
 
 /obj/structure/janitorialcart/Topic(href, href_list)
