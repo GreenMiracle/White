@@ -96,9 +96,7 @@
 		dat += "<a href='?src=\ref[src];replacer=1'>[myreplacer.name]</a><br>"
 	if(signs)
 		dat += "<a href='?src=\ref[src];sign=1'>[signs] sign\s</a><br>"
-	var/datum/browser/popup = new(user, "janicart", name, 240, 160)
-	popup.set_content(dat)
-	popup.open()
+
 
 
 /obj/structure/janitorialcart/Topic(href, href_list)
