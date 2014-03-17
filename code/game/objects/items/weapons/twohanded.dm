@@ -201,6 +201,43 @@
 		user << "<span class='notice'>You fasten the glass shard to the top of the rod with the cable.</span>"
 		del(I)
 		del(src)
+	else if(istype(I, /obj/item/weapon/wirecutters))
+		var/obj/item/weapon/melee/cattleprod/S = new /obj/item/weapon/melee/cattleprod
+
+		user.before_take_item(I)
+		user.before_take_item(src)
+
+		user.put_in_hands(S)
+		user << "<span class='notice'>You fasten the wirecutters to the top of the rod with the cable, prongs outward.</span>"
+		del(I)
+		del(src)
+
+/obj/item/weapon/melee/cattleprod
+	name = "cattleprod"
+	desc = "A some kind of unfinished stuf. And it still deadly."
+	icon_state = "stunprod_nocell"
+	item_state = "prod"
+	force = 3
+	throwforce = 5
+	slot_flags = null
+	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
+	hitsound = 'sound/weapons/Genhit.ogg'
+
+/obj/item/weapon/melee/cattleprod/attackby(var/obj/item/I, mob/user as mob)
+	..()
+	if(istype(I, /obj/item/weapon/cell))
+		var/obj/item/weapon/melee/baton/stunprod/S = new /obj/item/weapon/melee/baton/stunprod
+		var /obj/item/weapon/cell/G = new /obj/item/weapon/cell
+		S.prodcell = 7500 // WIP
+		G.loc = src
+		user.before_take_item(G)
+		user.before_take_item(src)
+		user.put_in_hands(S)
+		user << "<span class='notice'>You fasten the [G] to the top of the rod, and connected with the cable.</span>"
+		del(G)
+		del(I)
+		del(src)
+
 
 //spears
 /obj/item/weapon/twohanded/spear
