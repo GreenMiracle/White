@@ -21,7 +21,7 @@
 #define COLD_GAS_DAMAGE_LEVEL_2 1.5 //Amount of damage applied when the current breath's temperature passes the 200K point
 #define COLD_GAS_DAMAGE_LEVEL_3 3 //Amount of damage applied when the current breath's temperature passes the 120K point
 
-var/global/HUNGER_FACTOR = 0.34
+var/global/HUNGER_FACTOR = 0.2
 
 /mob/living/carbon/human
 	var/oxygen_alert = 0
@@ -1017,9 +1017,6 @@ var/global/HUNGER_FACTOR = 0.34
 
 		if(nutritionLoss<0)
 			nutritionLoss = 0
-
-		if(!client)
-			nutritionLoss = nutritionLoss/2
 		// Конец злоебучего кода голода.
 
 

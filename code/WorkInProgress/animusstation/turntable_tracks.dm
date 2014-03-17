@@ -103,3 +103,38 @@
 	f_name = "D"
 	name = "ont you Just Know"
 	path = 'Dont_you_just_know.ogg'
+
+/datum/turntable_soundtrack/cheekibreeki
+	f_name = "M"
+	name = "aslinu Poymal"
+	path = 'cheekibreeki.ogg'
+
+/datum/turntable_soundtrack/spressasshole
+	f_name = "S"
+	name = "pace Asshole"
+	path = 'spaceasshole.ogg'
+
+/datum/turntable_soundtrack/gaybar
+	f_name = "G"
+	name = "ay Bar"
+	path = 'gaybar.ogg'
+
+/datum/turntable_soundtrack/removekebab
+	f_name = "R"
+	name = "emove Kebab"
+	path = 'serbiastrong.ogg'
+
+/datum/turntable_soundtrack/spy
+	f_name = "S"
+	name = "py vs. Spy"
+	path = 'spy.ogg'
+
+/datum/turntable_soundtrack/removekebab
+	f_name = "R"
+	name = "emove Kebab"
+	path = 'serbiastrong.ogg'
+
+/datum/turntable_soundtrack/lolyjazz
+	f_name = "T"
+	name = "hinking Of Baby"
+	path = 'tobjazz.ogg'
