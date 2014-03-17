@@ -1,6 +1,6 @@
 /obj/structure/janitorialcart
 	name = "janitorial cart"
-	desc = "The ultimate in janitorial carts! Has space for water, mops, signs, trash bags, and more!"
+	desc = "This is the alpha and omega of sanitation."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
 	anchored = 0
@@ -97,6 +97,9 @@
 	if(signs)
 		dat += "<a href='?src=\ref[src];sign=1'>[signs] sign\s</a><br>"
 
+	user << browse(dat, "window=janicart;size=400x500")
+	onclose(user, "janicart")
+	return
 
 
 /obj/structure/janitorialcart/Topic(href, href_list)
