@@ -66,12 +66,8 @@
 
 		AI_mind.current.verbs += /datum/game_mode/malfunction/proc/takeover
 
-		for(var/obj/effect/landmark/malf/M in mode_landmarks)
-			if(M.name == "Malf-Spawn")
-				//var/obj/effect/landmark/L = new /obj/effect/landmark/aicam(M.loc)
-				//L.name = "AI Satellite"
-				AI_mind.current.loc = M.loc
-				break
+		var/obj/loc_landmark = locate("landmark*ai")
+		AI_mind.current.loc = loc_landmark.loc
 
 /*		AI_mind.current.icon_state = "ai-malf"
 		spawn(10)
