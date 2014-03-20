@@ -250,6 +250,8 @@
 		src.pixel_x = rand(-10.0, 10)
 		src.pixel_y = rand(-10.0, 10)
 
+/obj/item/weapon/reagent_containers/food/drinks/A
+
 /obj/item/weapon/reagent_containers/food/drinks/beer
 	name = "Space Beer"
 	desc = "Beer. In space."

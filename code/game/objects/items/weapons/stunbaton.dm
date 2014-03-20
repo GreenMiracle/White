@@ -166,3 +166,42 @@
 	if(charges < 1)
 		status = 0
 		update_icon()
+
+//Makeshift stun baton.
+/obj/item/weapon/melee/baton/stunprod
+	name = "stunprod"
+	desc = "An improvised stun baton."
+	icon_state = "stunprod"
+	item_state = "baton"
+	charges = 3
+	force = 3
+	var/hitminus = 2500
+	var/obj/item/weapon/cell/prodcell = null
+	throwforce = 10
+	slot_flags = SLOT_BELT
+
+/obj/item/weapon/melee/baton/stunprod/update_icon()
+	if(status)
+		icon_state = "stunprod_active"
+	else
+		icon_state = "stunprod"
+
+
+/obj/item/weapon/melee/baton/stunprod/attack()
+	..()
+	if (status && prodcell >= 2500)
+		charges = 3
+		prodcell = prodcell - hitminus
+	else if (!status && prodcell >= 2500)
+		charges = 2
+		update_icon()
+	else if (status && prodcell < 2500)
+		status = 0
+		charges = 0
+		usr << "<span class='warning'>\The [src] is out of charge.</span>"
+		update_icon()
+	else if (!status && prodcell < 2500)
+		charges = 0
+		status = 0
+		usr << "<span class='warning'>\The [src] is out of charge.</span>"
+		update_icon()
