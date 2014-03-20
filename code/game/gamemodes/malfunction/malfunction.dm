@@ -36,6 +36,11 @@
 		return 1
 	return 0
 
+	for(var/obj/effect/landmark/malf/M in world)
+		mode_landmarks += M
+
+ 	return ..()
+
 
 /datum/game_mode/malfunction/post_setup()
 	for(var/datum/mind/AI_mind in malf_ai)
@@ -60,6 +65,9 @@
 		AI_mind.special_role = "malfunction"
 
 		AI_mind.current.verbs += /datum/game_mode/malfunction/proc/takeover
+
+		var/obj/loc_landmark = locate("landmark*ai")
+		AI_mind.current.loc = loc_landmark.loc
 
 /*		AI_mind.current.icon_state = "ai-malf"
 		spawn(10)
@@ -266,3 +274,12 @@
 
 		world << text
 	return 1
+
+/obj/effect/landmark/malf
+	name = "Malf-Spawn"
+
+/obj/effect/landmark/malf/borg
+	name = "Borg-Spawn"
+
+/obj/effect/landmark/malf/mgturret
+	name = "Turret-Spawn"
