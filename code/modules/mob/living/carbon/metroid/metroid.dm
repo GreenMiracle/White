@@ -83,7 +83,7 @@
 	mind.key = G.key
 */
 /mob/living/carbon/metroid/movement_delay()
-	var/tally = 0
+	var/tally = -1
 
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 45) tally += (health_deficiency / 25)
@@ -93,16 +93,16 @@
 
 	if(reagents)
 		if(reagents.has_reagent("hyperzine")) // hyperzine slows Metroids down
-			tally *= 2 // moves twice as slow
+			tally += 2 // moves twice as slow
 
 		if(reagents.has_reagent("frostoil")) // frostoil also makes them move VEEERRYYYYY slow
-			tally *= 5
+			tally += 5
 
 	if(health <= 0) // if damaged, the metroid moves twice as slow
-		tally *= 2
+		tally += 2
 
 	if (bodytemperature >= 330.23) // 135 F
-		return -1	// Metroids become supercharged at high temperatures
+		return -2	// Metroids become supercharged at high temperatures
 
 	return tally
 

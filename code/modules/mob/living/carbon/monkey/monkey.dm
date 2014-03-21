@@ -92,11 +92,11 @@
 	add_language("Rootspeak")
 
 /mob/living/carbon/monkey/movement_delay()
-	var/tally = 0
+	var/tally = -1
 	if(reagents)
-		if(reagents.has_reagent("hyperzine")) return -1
+		if(reagents.has_reagent("hyperzine")) return -2
 
-		if(reagents.has_reagent("nuka_cola")) return -1
+		if(reagents.has_reagent("nuka_cola")) return -2
 
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 45) tally += (health_deficiency / 25)

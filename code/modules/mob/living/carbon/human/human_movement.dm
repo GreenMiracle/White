@@ -1,13 +1,13 @@
 /mob/living/carbon/human/movement_delay()
 	if(mRun in mutations)
-		return (config.human_delay)
+		return -3
 
-	var/tally = 0
+	var/tally = -2
 
-	if(reagents.has_reagent("hyperzine")) return -1
-	if(reagents.has_reagent("nuka_cola")) return -1
+	if(reagents.has_reagent("hyperzine")) return -3
+	if(reagents.has_reagent("nuka_cola")) return -3
 
-	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
+	if (istype(loc, /turf/space)) return -2 // It's hard to be slowed down in space by... anything
 
 	handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 

@@ -48,7 +48,7 @@
 	return
 
 /mob/living/carbon/alien/humanoid/movement_delay()
-	var/tally = 0
+	var/tally = -2
 	if (istype(src, /mob/living/carbon/alien/humanoid/queen))
 		tally += 5
 	if (istype(src, /mob/living/carbon/alien/humanoid/drone))
