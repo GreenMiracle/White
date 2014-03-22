@@ -4863,7 +4863,7 @@
 "bPA" = (/obj/machinery/door/poddoor{density = 0; icon_state = "pdoor0"; id = "Medical_Psychiatry"; name = "Privacy Shutters"; opacity = 0},/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced,/turf/simulated/floor/plating,/area/medical/medbay)
 "bPB" = (/obj/machinery/alarm{pixel_y = 24},/obj/structure/stool/bed/chair/comfy/brown,/turf/simulated/floor{icon_state = "bcarpet01"},/area/medical/medbay)
 "bPC" = (/obj/machinery/vending/wallmed1{pixel_y = 28},/turf/simulated/floor{icon_state = "bcarpet02"},/area/medical/medbay)
-"bPD" = (/obj/structure/noticeboard{pixel_y = 28},/obj/structure/stool/psychbed,/turf/simulated/floor{icon_state = "bcarpet02"},/area/medical/medbay)
+"bPD" = (/obj/structure/noticeboard{pixel_y = 28},/obj/structure/stool/bed/psych,/turf/simulated/floor{icon_state = "bcarpet02"},/area/medical/medbay)
 "bPE" = (/obj/structure/reagent_dispensers/water_cooler,/turf/simulated/floor{icon_state = "bcarpet03"},/area/medical/medbay)
 "bPF" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden,/mob/living/simple_animal/mouse,/turf/simulated/floor/plating,/area/maintenance/asmaint)
 "bPG" = (/obj/machinery/shieldwallgen{req_access = list(55)},/obj/structure/cable{icon_state = "0-2"; pixel_y = 1; d2 = 2},/turf/simulated/floor/engine,/area/toxins/misc_lab)
