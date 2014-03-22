@@ -4,22 +4,8 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "stool"
 	anchored = 1.0
-	flags = FPRINT | CONDUCT
+	flags = FPRINT
 	pressure_resistance = 15
-
-/obj/structure/stool/verb/Use()
-	set name = "Use"
-	set category = "Object"
-	set src in oview(0)
-	if (ishuman(usr))
-		src.MouseDrop_T(usr,usr)
-
-/obj/structure/stool/verb/Leave()
-	set name = "Leave"
-	set category = "Object"
-	set src in oview(0)
-	if	(ishuman(usr))
-		attack_hand(usr)
 
 /obj/structure/stool/ex_act(severity)
 	switch(severity)
@@ -49,9 +35,9 @@
 	return
 
 /obj/structure/stool/MouseDrop(atom/over_object)
-	if (istype(over_object, /mob/living/carbon/human) && (usr == over_object) && get_dist(over_object, src) <= 1)
+	if (istype(over_object, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = over_object
-		if (!H.restrained() && !H.stat)
+		if (H==usr && !H.restrained() && !H.stat && in_range(src, over_object))
 			var/obj/item/weapon/stool/S = new/obj/item/weapon/stool()
 			S.origin = src
 			src.loc = S

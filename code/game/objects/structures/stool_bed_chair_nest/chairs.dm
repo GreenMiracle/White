@@ -2,7 +2,6 @@
 	name = "chair"
 	desc = "You sit in this. Either by will or force."
 	icon_state = "chair"
-	anchored = 0
 
 /obj/structure/stool/bed/chair/evac
 	name = "comfy chair"
@@ -53,6 +52,8 @@
 		handle_rotation()
 		return
 	else
+		if(istype(usr,/mob/living/simple_animal/mouse))
+			return
 		if(!usr || !isturf(usr.loc))
 			return
 		if(usr.stat || usr.restrained())
@@ -108,7 +109,7 @@
 /obj/structure/stool/bed/chair/comfy/lime
 	icon_state = "comfychair_lime"
 
-/obj/structure/stool/bed/chair/Move()
+/obj/structure/stool/bed/chair/office/Move()
 	..()
 	if(buckled_mob)
 		buckled_mob.buckled = null //Temporary, so Move() succeeds.
