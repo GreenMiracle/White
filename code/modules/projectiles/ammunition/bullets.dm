@@ -35,10 +35,14 @@
 	desc = "A .38 bullet casing."
 	projectile_type = /obj/item/projectile/bullet/midbullet
 
-
 /obj/item/ammo_casing/c9mm
 	desc = "A 9mm bullet casing."
 	caliber = "9mm"
+	projectile_type = /obj/item/projectile/bullet/midbullet2
+
+/obj/item/ammo_casing/mag545
+	desc = "A 5.45 bullet casing."
+	caliber = "5.45"
 	projectile_type = /obj/item/projectile/bullet/midbullet2
 
 /obj/item/ammo_casing/c9mm/extra

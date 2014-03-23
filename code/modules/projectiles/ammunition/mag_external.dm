@@ -6,6 +6,14 @@
 	max_ammo = 12
 	multiple_sprites = 2
 
+/obj/item/ammo_magazine/external/mag545
+	name = "magazine (5.45)"
+	icon_state = "5.45mag"
+	ammo_type = /obj/item/ammo_casing/mag545
+	caliber = "5.45"
+	max_ammo = 30
+	multiple_sprites = 2
+
 /obj/item/ammo_magazine/external/uzim45
 	name = "magazine (.45)"
 	icon_state = "uzi45"

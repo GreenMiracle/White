@@ -16,6 +16,14 @@
 	if(..() && chambered)
 		alarmed = 0
 
+/obj/item/weapon/gun/projectile/automatic/ak74u
+	name = "AKS-74U"
+	desc = " Fully automatic russian-made carbine. Uses 5.45 caliber rounds."
+	icon_state = "aks74u"
+	w_class = 3.0
+	origin_tech = "combat=4;materials=2"
+	mag_type = /obj/item/ammo_magazine/external/mag545
+
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
 	name = "Uzi"

@@ -49,6 +49,15 @@
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 30
 
+/obj/item/ammo_magazine/box/mag545
+	name = "bullet clip (5.45)"
+	desc = "A clip of 5.45 ammo for russian rifles."
+	icon_state = "5.45mag"
+	caliber = "5.45"
+	origin_tech = "combat=2"
+	ammo_type = /obj/item/ammo_casing/mag545
+	max_ammo = 30
+
 
 /obj/item/ammo_magazine/box/c45
 	name = "ammo box (.45)"
