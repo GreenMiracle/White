@@ -20,9 +20,11 @@
 	name = "AKS-74U"
 	desc = " Fully automatic russian-made carbine. Uses 5.45 caliber rounds."
 	icon_state = "aks74u"
+	item_state = "c20r"
 	w_class = 3.0
 	origin_tech = "combat=4;materials=2"
 	mag_type = /obj/item/ammo_magazine/external/mag545
+	fire_sound = 'sound/weapons/Gunshot_smg.ogg'
 
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
