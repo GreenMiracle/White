@@ -21,6 +21,20 @@
 	force = 14.0
 	mag_type = /obj/item/ammo_magazine/external/m50
 
+/obj/item/weapon/gun/projectile/automatic/glock
+	name = "glock"
+	desc = "A old Glock 17 pistol. Uses .45 rounds"
+	icon_state = "glock"
+	force = 14.0
+	mag_type = /obj/item/ammo_magazine/external/sm45
+
+/obj/item/weapon/gun/projectile/automatic/beretta
+	name = "beretta"
+	desc = "A old Beretta M9. Uses 9mm rounds."
+	icon_state = "beretta"
+	force = 14.0
+	mag_type = /obj/item/ammo_magazine/external/mc9mm
+
 
 /obj/item/weapon/gun/projectile/automatic/deagle/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag)
 	..()

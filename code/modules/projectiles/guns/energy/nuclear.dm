@@ -31,7 +31,42 @@
 				modifystate = "energystun"
 		update_icon()
 
+/obj/item/weapon/gun/energy/gun/private
+	name = "legendary energy gun"
+	desc = "A legendary energy gun. Used by best of the best security officers."
+	icon_state = "legstun100"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	var/charge_tick = 0
 
+	origin_tech = "combat=5;magnets=4;powerstorage=2"
+	modifystate = "legstun"
+
+	attack_self(mob/living/user as mob)
+		switch(mode)
+			if(0)
+				..()
+				modifystate = "legkill"
+			if(1)
+				..()
+				modifystate = "legstun"
+		update_icon()
+
+	New()
+		..()
+		processing_objects.Add(src)
+
+	Del()
+		processing_objects.Remove(src)
+		..()
+
+	process()
+		charge_tick++
+		if(charge_tick < 4) return 0
+		charge_tick = 0
+		if(!power_supply) return 0
+		power_supply.give(100)
+		update_icon()
+		return 1
 
 /obj/item/weapon/gun/energy/gun/nuclear
 	name = "Advanced Energy Gun"
