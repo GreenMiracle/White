@@ -1,2 +1,4 @@
 testunit: Faith Leech: /obj/item/clothing/suit/storage/labcoat/fluff/pink
 nyancommissar: Iriko Sagamura: /obj/item/clothing/under/ks13suit
+parazlt: Zeke Tyler: /obj/item/weapon/poke_ball
+x0mrk: Apple Costello: /obj/item/weapon/poke_ball

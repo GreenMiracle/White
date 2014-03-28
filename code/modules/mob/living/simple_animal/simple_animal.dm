@@ -395,7 +395,7 @@
 /mob/living/simple_animal/movement_delay()
 	var/tally = 0 //Incase I need to add stuff other than "speed" later
 
-	tally = speed - 1
+	tally = speed
 
 	return tally+config.animal_delay
 
@@ -409,6 +409,7 @@
 	living_mob_list -= src
 	dead_mob_list += src
 	icon_state = icon_dead
+	walk_to(src,0)
 	stat = DEAD
 	density = 0
 	return

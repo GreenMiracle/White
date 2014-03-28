@@ -49,22 +49,43 @@
 			if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
 				movement_target = null
 				stop_automated_movement = 0
-			if( !movement_target || !(movement_target.loc in oview(src, 3)) )
+			if( !movement_target || !(movement_target.loc in oview(src, 5)) )
 				movement_target = null
 				stop_automated_movement = 0
-				for(var/mob/living/simple_animal/mouse/snack in oview(src,3))
+				for(var/mob/living/simple_animal/mouse/snack in oview(src,5))
 					if(isturf(snack.loc) && !snack.stat)
 						movement_target = snack
 						break
 			if(movement_target)
 				stop_automated_movement = 1
-				walk_to(src,movement_target,0,3)
+				walk_to(src,movement_target,0.5,10)
 
 //RUNTIME IS ALIVE! SQUEEEEEEEE~
 /mob/living/simple_animal/cat/Runtime
 	name = "Runtime"
 	desc = "Its fur has the look and feel of velvet, and it's tail quivers occasionally."
 
+/mob/living/simple_animal/cat/Runtime/cat2
+	name = "Erwin"
+	var/mob/living/carbon/human/host = null
+	icon_state = "Dark_cat"
+	icon_living = "Dark_cat"
+	icon_dead = "Dark_cat_dead"
+
+
+/mob/living/simple_animal/cat/Runtime/cat2/verb/call_cat()
+	set name = "Call Erwin"
+	set src in oview()
+	if(host&&usr==host)
+		stop_automated_movement = 1
+		movement_target = host
+
+/mob/living/simple_animal/cat/Runtime/cat2/verb/halt_cat()
+	set name = "Stay Here"
+	set src in oview()
+	if(host&&usr==host)
+		movement_target = 0
+		stop_automated_movement = 0
 
 /mob/living/simple_animal/cat/say(var/message)
 
