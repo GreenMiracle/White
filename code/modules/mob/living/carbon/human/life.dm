@@ -440,6 +440,13 @@ var/global/HUNGER_FACTOR = 0.2
 		if(breath)
 			loc.assume_air(breath)
 
+			//spread some viruses while we are at it
+			if (virus2.len > 0)
+				if (get_infection_chance(src) && prob(20))
+//					log_debug("[src] : Exhaling some viruses")
+					for(var/mob/living/carbon/M in view(1,src))
+						src.spread_disease_to(M)
+
 
 	proc/get_breath_from_internal(volume_needed)
 		if(internal)
@@ -990,7 +997,7 @@ var/global/HUNGER_FACTOR = 0.2
 			if(overeatduration > 1)
 				overeatduration -= 2 //doubled the unfat rate
 
-		// Начало злоебучего кода голода. Подсветка синтаксиса даже выделяет его коричневым!
+		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!
 		switch(nutrition)
 			if(300 to 400)
 				nutritionLoss -=10
@@ -1017,7 +1024,7 @@ var/global/HUNGER_FACTOR = 0.2
 
 		if(nutritionLoss<0)
 			nutritionLoss = 0
-		// Конец злоебучего кода голода.
+		// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
 
 
 		if(nutrition > 1)
@@ -1537,14 +1544,14 @@ var/global/HUNGER_FACTOR = 0.2
 				V.cure(src)
 
 		for(var/obj/effect/decal/cleanable/blood/B in view(1,src))
-			if(B.virus2.len && get_infection_chance(src))
+			if(B.virus2.len)
 				for (var/ID in B.virus2)
-					var/datum/disease2/disease/V = virus2[ID]
+					var/datum/disease2/disease/V = B.virus2[ID]
 					infect_virus2(src,V)
 		for(var/obj/effect/decal/cleanable/mucus/M in view(1,src))
-			if(M.virus2.len && get_infection_chance(src))
+			if(M.virus2.len)
 				for (var/ID in M.virus2)
-					var/datum/disease2/disease/V = virus2[ID]
+					var/datum/disease2/disease/V = M.virus2[ID]
 					infect_virus2(src,V)
 
 		for (var/ID in virus2)
