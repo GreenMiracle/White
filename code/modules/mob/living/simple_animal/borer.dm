@@ -58,7 +58,6 @@
 
 	..()
 
-
 	if(host)
 
 		if(!stat && !host.stat)
@@ -218,8 +217,7 @@
 		src << "You cannot do that in your current state."
 		return
 
-// 	А такого у нас в билде нет. Вот говно, да?
-//	if(host.internal_organs_by_name["brain"]) //this should only run in admin-weirdness situations, but it's here non the less - RR
+//	if(!host.internal_organs_by_name["brain"]) //this should only run in admin-weirdness situations, but it's here non the less - RR
 //		src << "<span class='warning'>There is no brain here for us to command!</span>"
 //		return
 
@@ -339,7 +337,13 @@ mob/living/simple_animal/borer/proc/detatch()
 		host_brain.name = "host brain"
 		host_brain.real_name = "host brain"
 
+	var/mob/living/H = host
 	host = null
+
+//	for(var/atom/A in H.contents)
+//		if(istype(A,/mob/living/simple_animal/borer) || istype(A,/obj/item/weapon/holder))
+//			return
+//	H.status_flags &=~PASSEMOTES
 
 /mob/living/simple_animal/borer/verb/infest()
 	set category = "Alien"
@@ -355,9 +359,7 @@ mob/living/simple_animal/borer/proc/detatch()
 		return
 
 	var/list/choices = list()
-
-//	Шайтан процессы!
-//	for(var/mob/living/carbon/C in view(1,src))
+	for(var/mob/living/carbon/C in view(1,src))
 //		if(C.stat != 2 && src.Adjacent(C))
 //			choices += C
 
@@ -371,11 +373,8 @@ mob/living/simple_animal/borer/proc/detatch()
 		src << "You cannot infest someone who is already infested!"
 		return
 
-//	Шайтан часть кода!
 //	if(istype(M,/mob/living/carbon/human))
 //		var/mob/living/carbon/human/H = M
-
-//		Простите, но наш билд не может в такую проверку!
 //		if(H.check_head_coverage())
 //			src << "You cannot get through that host's protective gear."
 //			return
@@ -405,13 +404,14 @@ mob/living/simple_animal/borer/proc/detatch()
 		src.host = M
 		src.loc = M
 
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			var/datum/organ/external/head = H.get_organ("head")
-			head.implants += src
-
-		host_brain.name = M.name
-		host_brain.real_name = M.real_name
+//		if(istype(M,/mob/living/carbon/human))
+//			var/mob/living/carbon/human/H = M
+//			var/datum/organ/external/head = H.get_organ("head")
+//			head.implants += src
+//
+//		host_brain.name = M.name
+//		host_brain.real_name = M.real_name
+//		host.status_flags |= PASSEMOTES
 
 		return
 	else
